@@ -7,6 +7,8 @@ const bodyparser = require('body-parser');
 const path = require('path');
 const request = require('request');
 
+const sampleRoutes = require('./routes/sample');
+
 const app = express();
 
 /***************** INIT CUSTOM MODULES *********************/
@@ -34,6 +36,8 @@ app.use((req, res, next) => {
 app.get('/', (request, response) => {
   response.json({ success: 'true' });
 });
+// Routes related to the sample application
+sampleRoutes(app);
 
 const port = process.env.PORT || 8080;
 const server = app.listen(port, () => {
