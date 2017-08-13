@@ -1,0 +1,33 @@
+{
+  "name": "mai-waifu",
+  "version": "0.0.1",
+  "description": "General purpose fulfillment node server for google home dev",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cptran777/mai-waifu.git"
+  },
+  "keywords": [
+    "waifu",
+    "sama",
+    "deshita"
+  ],
+  "author": "Charlie Tran",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cptran777/mai-waifu/issues"
+  },
+  "homepage": "https://github.com/cptran777/mai-waifu#readme",
+  "dependencies": {
+    "actions-on-google": "^1.2.0",
+    "body-parser": "^1.17.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.4",
+    "nodemon": "^1.11.0",
+    "path": "^0.12.7",
+    "request": "^2.81.0"
+  }
+}
