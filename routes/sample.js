@@ -7,6 +7,9 @@
 
 module.exports = function(app) {
   app.post('/api/sample', (request, response) => {
+    console.log('income request: ');
+    console.log(request.body);
+    
     response.json({
       speech: 'Hello world',
       displayText: 'Hello world',
