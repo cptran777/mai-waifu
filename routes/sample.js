@@ -4,20 +4,13 @@
  * This file contains the setup for the routing for the /api/sample route
  */
 'use strict'
+const createResponse = require('../util/sample');
 
 module.exports = function(app) {
   app.post('/api/sample', (request, response) => {
     console.log('income request: ');
     console.log(JSON.stringify(request.body));
 
-    response.json({
-      speech: 'Hello world',
-      displayText: 'Hello world',
-      data: {
-        sample: 'Hello darkness my old friend'
-      },
-      contextOut: [{ name: 'greeting' }],
-      source: 'sampleApp'
-    });
+    response.json(createResponse(request.body));
   });
 };
