@@ -4,6 +4,9 @@
  * This file contains the utility functions (mostly used to build responses) for 
  * the sample route of the application
  */
+
+/****************************** INIT  CONSTANTS ******************************/
+
 const defaultResponse = {
   speech: 'I didn\'t get that. Could you try again?',
   displayText: 'I didn\'t get that. Could you try again?',
@@ -12,6 +15,20 @@ const defaultResponse = {
   source: 'sampleApp'
 };
 
+/**
+ * Houses constants related to the action names
+ * @type {Object}
+ */
+const ACTIONS = {
+  WELCOME_HOME: 'welcome.home'
+};
+
+/**
+ * Triggered by an action from the google actions in which the user wants to 
+ * welcome someone home
+ * @param  {String} name - given-name paramter to plug into welcome statement
+ * @return {Object}      - object to be returned from the route
+ */
 const welcomeHome = (name) => {
   const mytext = `Hello there, ${name}. Welcome home! Hope you've had a good day`;
 
@@ -24,6 +41,13 @@ const welcomeHome = (name) => {
   };
 };
 
+/**
+ * Main export from the file, acts as a function that takes in the request body and
+ * based on the given information from the google action will map to the proper
+ * function and use that helper function to create a proper response point
+ * @param  {Object} data - the request body
+ * @return {Object}      - object to be returned from route, that is returned by function
+ */
 module.exports = function(data) {
   // Safeguard just in case
   data = data || {};
@@ -31,7 +55,7 @@ module.exports = function(data) {
 
   try {
     switch (actionName) {
-      case 'welcome.home':
+      case ACTIONS.WELCOME_HOME:
         let paramName = data.result.parameters['given-name'];
         return welcomeHome(paramName);
 
