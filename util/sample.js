@@ -14,6 +14,7 @@ const defaultResponse = {
 
 const welcomeHome = (name) => {
   const mytext = `Hello there, ${name}. Welcome home! Hope you've had a good day`;
+
   return {
     speech: mytext,
     displayText: mytext,
@@ -31,7 +32,7 @@ module.exports = function(data) {
   try {
     switch (actionName) {
       case 'welcome.home':
-        let paramName = data.result.parameters.given-name;
+        let paramName = data.result.parameters['given-name'];
         return welcomeHome(paramName);
 
       default:
@@ -41,7 +42,7 @@ module.exports = function(data) {
   catch (err) {
     let mytext = 'Sorry, there was an error in your request. Could you try something else?';
     console.log(err);
-    
+
     return {
       speech: mytext,
       displayText: mytext,
