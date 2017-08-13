@@ -4,7 +4,8 @@
   "description": "General purpose fulfillment node server for google home dev",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -29,5 +30,8 @@
     "nodemon": "^1.11.0",
     "path": "^0.12.7",
     "request": "^2.81.0"
+  },
+  "engines": {
+    "node": "6.10.2"
   }
 }
