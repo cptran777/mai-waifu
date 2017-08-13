@@ -19,6 +19,16 @@ app.use((req, res, next) => {
 
 app.use(bodyparser.json());
 
+app.use((req, res, next) => {
+  const token = req.header('mw_access');
+
+  if (token === 'rinbestwaifu') {
+    next();
+  } else {
+    res.send('your waifu is trash');
+  }
+});
+
 /******************** START  ROUTES ************************/
 
 app.get('/', (request, response) => {
