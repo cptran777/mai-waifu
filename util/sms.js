@@ -56,6 +56,7 @@ module.exports = {
       const targetNum = mapRecipientToNumber[normalizeName(recipient)];
 
       if (!targetNum) {
+        console.log('Tried to sendMessage to', recipient, 'but did not find in the map');
         resolver({ 
           success: false, 
           message: `I could not find the number of ${recipient}`});
