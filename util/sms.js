@@ -72,7 +72,8 @@ module.exports = {
           console.log(err.message);
           resolver({
             success: false,
-            message: err.message
+            message: 'Twilio returned an error when trying to send your message',
+            display: err.message
           });
         } else {
           console.log('sendMessage successfully sent a message');

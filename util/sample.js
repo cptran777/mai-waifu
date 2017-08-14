@@ -66,7 +66,7 @@ const sendMessage = (target, message, response) => {
 
     response.json({
       speech,
-      displayText: speech,
+      displayText: result.display || speech,
       data: {},
       contextOut: [],
       source: 'Karen'
@@ -88,17 +88,18 @@ module.exports = function(data, response) {
   // Safeguard just in case
   data = data || {};
   const actionName = (data.result || {}).action;
+  const parameters = (data.result || {}).parameters || {};
 
   try {
     switch (actionName) {
       case ACTIONS.WELCOME_HOME:
-        let paramName = data.result.parameters['given-name'];
+        let paramName = parameters['given-name'];
         response.json(welcomeHome(paramName));
         break;
 
       case ACTIONS.SEND_MESSAGE:
-        let paramTarget = data.result.parameters['target-name'];
-        let paramMessage = data.result.parameters['target-message'];
+        let paramTarget = parameters['target-name'];
+        let paramMessage = parameters['target-message'];
         sendMessage(paramTarget, paramMessage, response);
         break;
 
